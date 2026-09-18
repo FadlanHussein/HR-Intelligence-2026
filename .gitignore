@@ -1,0 +1,45 @@
+# ==============================
+# Python
+# ==============================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.env
+.venv/
+ENV/
+env/
+
+# ==============================
+# Jupyter Notebook
+# ==============================
+.ipynb_checkpoints/
+.jupyter/
+
+# ==============================
+# IDE / Editor
+# ==============================
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ==============================
+# Data & Output
+# ==============================
+/data/raw/
+/data/processed/
+/data/proceed/
+/output/
+*.csv
+*.xlsx
+*.json
+*.db
+*.sqlite
+
+# ==============================
+# OS Files
+# ==============================
+.DS_Store
+Thumbs.db
