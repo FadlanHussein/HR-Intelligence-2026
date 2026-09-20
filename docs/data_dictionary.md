@@ -77,3 +77,85 @@ Tipe data PostgreSQL ditentukan berdasarkan karakteristik dan makna data, bukan 
 | personality_score     | INTEGER         | Nilai assessment berada pada rentang 0–100         |
 | recruitment_strategy  | VARCHAR(20)     | Data berupa kategori teks                          |
 | hiring_decision       | INTEGER         | Nilai keputusan berupa 0 atau 1                    |
+
+## Database Design
+
+### Nama Database
+
+`recruitment_intelligence`
+
+Database ini digunakan sebagai tempat penyimpanan data untuk Project Recruitment Intelligence.
+
+### Tabel Utama
+
+`recruitment_candidates`
+
+Tabel ini menyimpan informasi kandidat, atribut recruitment, hasil assessment, dan keputusan hiring.
+
+### Struktur Tabel
+
+| Kolom                 | Tipe PostgreSQL | Keterangan                     |
+| --------------------- | --------------- | ------------------------------ |
+| candidate_id          | SERIAL          | Primary Key dan ID otomatis    |
+| age                   | INTEGER         | Usia kandidat                  |
+| gender                | VARCHAR(20)     | Jenis kelamin kandidat         |
+| education_level       | VARCHAR(50)     | Tingkat pendidikan             |
+| experience_years      | INTEGER         | Lama pengalaman kerja          |
+| previous_companies    | INTEGER         | Jumlah perusahaan sebelumnya   |
+| distance_from_company | NUMERIC         | Jarak kandidat dari perusahaan |
+| interview_score       | INTEGER         | Nilai interview                |
+| skill_score           | INTEGER         | Nilai kemampuan kandidat       |
+| personality_score     | INTEGER         | Nilai penilaian kepribadian    |
+| recruitment_strategy  | VARCHAR(20)     | Strategi recruitment           |
+| hiring_decision       | INTEGER         | Keputusan hiring: 0 atau 1     |
+
+### Primary Key
+
+`candidate_id` digunakan sebagai Primary Key untuk mengidentifikasi setiap record kandidat secara unik.
+
+ID dibuat secara otomatis oleh PostgreSQL menggunakan `SERIAL`.
+
+### Constraints
+
+Database memiliki aturan validasi sebagai berikut:
+
+- `age` harus berada pada rentang 20–50.
+- `experience_years` harus berada pada rentang 0–15.
+- `previous_companies` harus berada pada rentang 1–5.
+- `interview_score` harus berada pada rentang 0–100.
+- `skill_score` harus berada pada rentang 0–100.
+- `personality_score` harus berada pada rentang 0–100.
+- `hiring_decision` hanya boleh bernilai 0 atau 1.
+
+### Struktur Konseptual
+
+Data kandidat dikelompokkan menjadi:
+
+**Candidate Attributes**
+
+- age
+- gender
+- education_level
+- experience_years
+- previous_companies
+
+**Recruitment Attributes**
+
+- distance_from_company
+- recruitment_strategy
+
+**Assessment**
+
+- interview_score
+- skill_score
+- personality_score
+
+**Outcome**
+
+- hiring_decision
+
+### Pengembangan Database
+
+Pada tahap berikutnya, database dapat dikembangkan menjadi beberapa tabel seperti `vacancies`, `applications`, `interviews`, dan `assessments` apabila kebutuhan sistem recruitment menjadi lebih kompleks.
+
+Untuk dataset Project 01 saat ini, satu tabel `recruitment_candidates` sudah cukup untuk merepresentasikan struktur data yang tersedia.
