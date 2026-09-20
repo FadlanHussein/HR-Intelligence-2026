@@ -55,12 +55,12 @@ print("\nColumns:")
 for column in df.columns:
     print(f"  {column}")
 
+
+print("\n---Pengecekan Kualitas Data---")
+
 print("\nMissing values verification:")
-print(df.isnull().sum())
-print("\nTotal missing cells:")
-print(df.isnull().sum().sum())
-print("\nMissing values:")
-print(df.isnull().sum())
+print(df.isna().sum())
+print("\nTotal Missing Cells:", df.isna().sum().sum())
 
 print("\nMengecek Range Score:")
 for col in ["InterviewScore", "SkillScore", "PersonalityScore"]:
