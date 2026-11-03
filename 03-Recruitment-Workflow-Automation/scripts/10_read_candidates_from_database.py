@@ -66,7 +66,52 @@ try:
 
         print("\n=== DATA TYPES ===")
         print(df.dtypes)
+        # 4. DATABASE DATA PROFILING
 
+        profiling_query = text("""
+            SELECT
+                COUNT(*) AS total_candidates,
+                COUNT(DISTINCT candidate_id) AS unique_candidates,
+                COUNT(*) FILTER (
+                    WHERE hiring_decision = 1
+                ) AS hired_candidates,
+                COUNT(*) FILTER (
+                    WHERE hiring_decision = 0
+                ) AS rejected_candidates,
+                COUNT(*) FILTER (
+                    WHERE hiring_decision IS NULL
+                ) AS missing_decisions
+            FROM recruitment_candidates
+        """)
+
+        profiling = connection.execute(
+            profiling_query
+        ).mappings().one()
+
+        print("\n=== DATABASE DATA PROFILING ===")
+
+        for metric, value in profiling.items():
+            print(f"{metric}: {value}")
+
+        # 5. RECRUITMENT DECISION DISTRIBUTION
+
+        distribution_query = text("""
+            SELECT
+                hiring_decision,
+                COUNT(*) AS total_candidates
+            FROM recruitment_candidates
+            GROUP BY hiring_decision
+            ORDER BY hiring_decision
+        """)
+
+        distribution = pd.read_sql(
+            distribution_query,
+            connection
+        )
+
+        print("\n=== HIRING DECISION DISTRIBUTION ===")
+        print(distribution.to_string(index=False))
+        
         print("\nDatabase reading: SUCCESS")
 
 except SQLAlchemyError as error:
