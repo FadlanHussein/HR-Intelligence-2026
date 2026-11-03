@@ -17,7 +17,8 @@ OUTPUT_PATH = (
 )
 
 # Load raw dataset
-df = pd.read_csv(SOURCE_PATH)
+raw_df = pd.read_csv(SOURCE_PATH)
+df = raw_df.copy()
 
 # Normalize column names
 def normalize_column_name(column_name):
@@ -169,7 +170,7 @@ print(df.isnull().sum())
 
 print("\nFINAL DATA VALIDATION")
 
-assert len(df) == 1493, "Record count changed unexpectedly"
+assert len(df) == len(raw_df), "Record count changed unexpectedly"
 assert df.isnull().sum().sum() == 0, "Missing values still exist"
 assert df.columns.is_unique, "Duplicate column names detected"
 
