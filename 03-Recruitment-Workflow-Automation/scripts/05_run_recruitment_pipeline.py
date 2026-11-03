@@ -27,9 +27,20 @@ PIPELINE_STAGES = [
     {
         "name": "WORKFLOW AUTOMATION",
         "script": "04_recruitment_workflow_automation.py"
+    },
+    {
+        "name": "AUTOMATED RECRUITMENT SUMMARY",
+        "script": "06_generate_recruitment_reports.py"
+    },
+    {
+        "name": "EXCEL & CSV REPORT GENERATION",
+        "script": "07_export_recruitment_reports.py"
+    },
+    {
+        "name": "AUTOMATED EXCEPTION SUMMARY",
+        "script": "08_generate_recruitment_exception_summary.py"
     }
 ]
-
 LOG_COLUMNS = [
     "run_id",
     "stage",

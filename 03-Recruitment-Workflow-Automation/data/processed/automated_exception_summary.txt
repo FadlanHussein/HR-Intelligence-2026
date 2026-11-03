@@ -1,0 +1,13 @@
+AUTOMATED RECRUITMENT EXCEPTION SUMMARY
+=============================================
+Generated At: 2026-11-03 23:51:11
+Overall Hiring Rate Benchmark: 30.94%
+
+STRATEGIES BELOW BENCHMARK
+Conservative: 14.08% (Variance: -16.86 percentage points)
+Moderate: 13.71% (Variance: -17.23 percentage points)
+
+Total Exceptions: 2
+
+NOTE: This is a descriptive comparison, not a causal
+assessment of recruitment strategy effectiveness.
