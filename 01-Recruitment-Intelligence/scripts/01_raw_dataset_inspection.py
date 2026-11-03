@@ -52,9 +52,7 @@ print(df["HiringDecision"].value_counts())
 
 
 # 6. RAW DATASET SUMMARY
-print("\n" + "-" * 50)
-print("Raw Dataset Inspection Summary")
-print("-" * 50)
+print("\n=== Raw Dataset Inspection Summary ===")
 
 print(f"Total records   : {len(df)}")
 print(f"Total columns   : {len(df.columns)}")
@@ -67,9 +65,7 @@ for column in df.columns:
 
 
 # 7. TASK 1.3 - DATA QUALITY CHECK
-print("\n" + "-" * 50)
-print("TASK 1.3 - DATA QUALITY CHECK")
-print("-" * 50)
+print("\n=== Task 1.3 - Data Quality Check ===")
 
 # 1. Missing Values
 print("\nMissing values verification:")

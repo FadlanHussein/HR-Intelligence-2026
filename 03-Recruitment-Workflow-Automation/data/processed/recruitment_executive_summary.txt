@@ -1,0 +1,31 @@
+RECRUITMENT EXECUTIVE SUMMARY
+===================================
+Generated At: 2026-11-03 23:22:40
+
+RECRUITMENT OVERVIEW
+Total Candidates : 1,493
+Hired Candidates : 462
+Rejected Candidates : 1,031
+Hiring Rate : 30.94%
+Rejection Rate : 69.06%
+
+RECRUITMENT STRATEGY PERFORMANCE
+Aggressive: 317 hired / 443 candidates (71.56% hiring rate)
+  Hiring Contribution: 68.61%
+  Rejection Contribution: 12.22%
+Conservative: 40 hired / 284 candidates (14.08% hiring rate)
+  Hiring Contribution: 8.66%
+  Rejection Contribution: 23.67%
+Moderate: 105 hired / 766 candidates (13.71% hiring rate)
+  Hiring Contribution: 22.73%
+  Rejection Contribution: 64.11%
+
+DATA RECONCILIATION
+Total Candidates: PASS
+Hired Candidates: PASS
+Rejected Candidates: PASS
+Strategy Candidate Count: PASS
+
+Overall Reporting Status: APPROVED
+
+Note: Strategy comparisons are descriptive and do not establish causal effectiveness.
