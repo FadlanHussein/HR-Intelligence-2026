@@ -4,6 +4,13 @@ import json
 from sqlalchemy import create_engine, text
 from pathlib import Path
 from urllib.parse import quote_plus
+import importlib
+
+sync_log_module = importlib.import_module(
+    "15_recruitment_synchronization_log"
+)
+
+create_sync_log = sync_log_module.create_sync_log
 
 # Project paths
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -176,5 +183,17 @@ print("-------------------------")
 print(f"Inserted records : {inserted_count}")
 print(f"Skipped records  : {skipped_count}")
 
-# Close database connection
+# Record synchronization activity
+sync_status = "SUCCESS"
+
+create_sync_log(
+    source_file=CSV_PATH.name,
+    incoming_records=len(incoming_df),
+    database_records=len(database_df),
+    new_records=len(new_records),
+    inserted_records=inserted_count,
+    skipped_records=skipped_count,
+    sync_status=sync_status
+)
+
 engine.dispose()
